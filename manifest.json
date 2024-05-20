@@ -1,0 +1,13 @@
+{
+  "name": "Cabra Azul",
+  "short_name": "Cabra Azul",
+  "theme_color": "#D3C5AE",
+  "background_color": "#906651",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": {
+    "128": "icon.png"
+  }
+}
