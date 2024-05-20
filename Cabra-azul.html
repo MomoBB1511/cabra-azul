@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type"
+        content="text/html; charset=utf-8"/>
+        <title>Cabra-azul App</title>
+    <script>
+        function Einfügen(preis, groeße) {
+            var ergebnisFeld = document.getElementById("Ergebnis");
+            var alterWert = parseFloat(ergebnisFeld.value)
+            var neuerWert = alterWert + preis;
+            ergebnisFeld.value = neuerWert;
+            var anzahlgroeße = document.getElementById("Anzahl"+groeße);
+            var alterWertAnzahl = parseInt(anzahlgroeße.value);
+            anzahlgroeße.value = alterWertAnzahl + 1;
+
+            
+            var ergebnisTotalFeld = document.getElementById("ErgebnisTotal")
+            var altErgebnisTotal = parseFloat(ergebnisTotalFeld.value);
+            var neuerWertTotal = altErgebnisTotal + preis;
+            ergebnisTotalFeld.value = neuerWertTotal;
+
+            
+            var farbe = document.getElementById('farbe'+ groeße).value;
+            var tabelle = document.getElementById(farbe + groeße);
+            var alterWertTabelle = parseInt(tabelle.value);
+            tabelle.value = alterWertTabelle - 1;
+        }
+        function Entfernen(preis, groeße) {
+            var ergebnisFeld = document.getElementById("Ergebnis");
+            var alterWert = parseFloat(ergebnisFeld.value)
+            var neuerWert = alterWert - preis;
+            ergebnisFeld.value = neuerWert;
+
+            var anzahlgroeße = document.getElementById("Anzahl"+groeße);
+            var alterWertAnzahl = parseInt(anzahlgroeße.value);
+            anzahlgroeße.value = alterWertAnzahl - 1;
+
+            var ergebnisTotalFeld = document.getElementById("ErgebnisTotal")
+            var altErgebnisTotal = parseFloat(ergebnisTotalFeld.value);
+            var neuerWertTotal = altErgebnisTotal - preis;
+            ergebnisTotalFeld.value = neuerWertTotal;
+
+            var farbe = document.getElementById('farbe'+ groeße).value;
+            var tabelle = document.getElementById(farbe + groeße);
+            var alterWertTabelle = parseInt(tabelle.value);
+            tabelle.value = alterWertTabelle + 1;
+        }
+        function Zurücksetzen() {
+            var ergebnisFeld = document.getElementById("Ergebnis");
+            ergebnisFeld.value = 0;
+            var anzahlgroeße = document.getElementById("Anzahl"+ 'klein');
+            anzahlgroeße.value = 0;
+            anzahlgroeße = document.getElementById("Anzahl"+ 'mittel');
+            anzahlgroeße.value = 0;
+            anzahlgroeße = document.getElementById("Anzahl"+ 'groß');
+            anzahlgroeße.value = 0;
+        }
+    
+    </script>
+    <style>
+        input, select {
+            font-size: 25pt;
+        }
+        
+    </style>
+    </head>
+    <body>
+        <div style="font-size: 15pt;">
+        <p>Schwalbe klein</p>
+        <select id="farbeklein">
+            <option value="amarelo">Amarelo</option>
+            <option value="mirtilo">Mirtilo</option>
+            <option value="verdeagua">Verde agua</option>
+            <option value="verdeaguapastel">Verde agua pastel</option>
+            <option value="lilas">Lilás</option>
+            <option value="verdecaldo">Verde caldo</option>
+            <option value="preto">Preto</option>
+            <option value="rosavelho">Rosa velho</option>
+            <option value="rosapastel">Rosa pastel</option>
+            <option value="azulcobalto">Azul Cobalto</option>
+            <option value="azulturquesa">Azul Turquesa</option>
+        </select>
+        <input id="Einfügenklein" type="button" value="+" onclick="Einfügen(590, 'klein')">
+       <input id="Entfernenklein" type="button" value="-" onclick="Entfernen(590, 'klein')">
+       Anzahl: <input id="Anzahlklein" type="button" value="0" disabled>    
+      
+
+        <p>Schwalbe mittel</p>
+        <select id="farbemittel">
+            <option value="amarelo">Amarelo</option>
+            <option value="mirtilo">Mirtilo</option>
+            <option value="verdeagua">Verde agua</option>
+            <option value="verdeaguapastel">Verde agua pastel</option>
+            <option value="lilas">Lilás</option>
+            <option value="verdecaldo">Verde caldo</option>
+            <option value="preto">Preto</option>
+            <option value="rosavelho">Rosa velho</option>
+            <option value="rosapastel">Rosa pastel</option>
+            <option value="azulcobalto">Azul Cobalto</option>
+            <option value="azulturquesa">Azul Turquesa</option>
+        </select>
+       <input id="Einfügenmittel" type="button" value="+" onclick="Einfügen(790, 'mittel')">
+       <input id= "Entfernenmittel" type="button" value="-" onclick="Entfernen(790, 'mittel')">
+       Anzahl: <input id="Anzahlmittel" type="button" value="0" disabled>        
+  
+        <p>Schwalbe groß</p>
+        <select id="farbegroß">
+            <option value="amarelo">Amarelo</option>
+            <option value="mirtilo">Mirtilo</option>
+            <option value="verdeagua">Verde agua</option>
+            <option value="verdeaguapastel">Verde agua pastel</option>
+            <option value="lilas">Lilás</option>
+            <option value="verdecaldo">Verde caldo</option>
+            <option value="preto">Preto</option>
+            <option value="rosavelho">Rosa velho</option>
+            <option value="rosapastel">Rosa pastel</option>
+            <option value="azulcobalto">Azul Cobalto</option>
+            <option value="azulturquesa">Azul Turquesa</option>
+        </select>
+       <input id="Einfügengroß" type="button" value="+" onclick="Einfügen(990, 'groß')">
+       <input id="Entfernengroß" type="button" value="-" onclick="Entfernen(990, 'groß')">
+       Anzahl: <input id="Anzahlgroß" type="button" value="0" disabled>        
+    </div>
+    <div style="margin-top: 50px; font-size: 20pt;">
+        <input id="Ergebnis" style="width: 100px;" type="text" value="0" disabled>cent
+        <input type="button" value="Zurücksetzen" onclick="Zurücksetzen()">
+        </div>
+        <div style="margin-top: 50px; font-size: 20pt;">
+        <p style="font-size: 25pt;">Gesamtbetrag</p>
+            <input id="ErgebnisTotal" style="width: 100px;" type="text" value="0" disabled>cent
+            </div>
+               
+                <div style="border: solid black; margin-top: 50px; width: 450px; margin-left: 0px; text-align: center;">
+            <table>
+        <tr>
+            <th>Schwalbe klein  Amarelo</th>
+            <td><input type="number" id="amareloklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Mirtilo</th>
+            <td><input type="number" id="mirtiloklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Verde agua</th>
+            <td><input type="number" id="verdeaguaklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Verde agua pastel</th>
+            <td><input type="number" id="verdeaguapastelklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Lilás</th>
+            <td><input type="number" id="lilasklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Verde caldo</th>
+            <td><input type="number" id="verdecaldoklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Preto</th>
+            <td><input type="number" id="pretoklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Rosa velho</th>
+            <td><input type="number" id="rosavelhoklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Rosa pastel</th>
+            <td><input type="number" id="rosapastelklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Azul cobalto</th>
+            <td><input type="number" id="azulcobaltoklein" value="0" style="width: 218px;"></td>
+        </tr>
+        <tr>
+            <th>Schwalbe klein Azul turquesa</th>
+            <td><input type="number" id="azulturquesaklein" value="0" style="width: 218px;"></td>
+        </tr>
+    </table>
+    </div>
+    <div style="border: solid black; margin-top: 50px; width: 450px; margin-left: 0px; text-align: center;">    
+        <table>
+            <tr>
+                <th>Schwalbe mittel  Amarelo</th>
+                <td><input type="number" id="amarelomittel" value="0" style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Mirtilo</th>
+                <td><input type="number" id="mirtilomittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Verde agua</th>
+                <td><input type="number" id="verdeaguamittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Verde agua pastel</th>
+                <td><input type="number" id="verdeaguapastelmittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Lilás</th>
+                <td><input type="number" id="lilasmittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Verde caldo</th>
+                <td><input type="number" id="verdecaldomittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Preto</th>
+                <td><input type="number" id="pretomittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Rosa velho</th>
+                <td><input type="number" id="rosavelhomittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Rosa pastel</th>
+                <td><input type="number" id="rosapastelmittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Azul cobalto</th>
+                <td><input type="number" id="azulcobaltomittel" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe mittel Azul turquesa</th>
+                <td><input type="number" id="azulturquesamittel" value="0"  style="width: 218px;"></td>
+            </tr>
+        </table>
+       </div>
+        <div style="border: solid black; margin-top: 50px; width: 450px; margin-left: 0px; text-align: center;">
+        <table>
+            <tr>
+                <th>Schwalbe groß  Amarelo</th>
+                <td><input type="number" id="amarelogroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Mirtilo</th>
+                <td><input type="number" id="mirtilogroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Verde agua</th>
+                <td><input type="number" id="verdeaguagroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Verde agua pastel</th>
+                <td><input type="number" id="verdeaguapastelgroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Lilás</th>
+                <td><input type="number" id="lilasgroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Verde caldo</th>
+                <td><input type="number" id="verdecaldogroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Preto</th>
+                <td><input type="number" id="pretogroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Rosa velho</th>
+                <td><input type="number" id="rosavelhogroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Rosa pastel</th>
+                <td><input type="number" id="rosapastelgroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Azul cobalto</th>
+                <td><input type="number" id="azulcobaltogroß" value="0"  style="width: 218px;"></td>
+            </tr>
+            <tr>
+                <th>Schwalbe groß Azul turquesa</th>
+                <td><input type="number" id="azulturquesagroß" value="0"  style="width: 218px;"></td>
+            </tr>
+        </table>
+        </div>   
+</body>
+</html>
