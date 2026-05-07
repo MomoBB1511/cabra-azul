@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type"
+        content="text/html; charset=utf-8"/>
+        <title>Bookspiration</title>
+    <script>
+        function Einfügen(preis, groeße) {
+            var ergebnisFeld = document.getElementById("Ergebnis");
+            var alterWert = parseFloat(ergebnisFeld.value)
+            var neuerWert = alterWert + preis;
+            ergebnisFeld.value = neuerWert;
+
+            var anzahlgroeße = document.getElementById("Anzahl"+groeße);
+            var alterWertAnzahl = parseInt(anzahlgroeße.value);
+            anzahlgroeße.value = alterWertAnzahl + 1;
+
+            
+            var ergebnisTotalFeld = document.getElementById("ErgebnisTotal")
+            var altErgebnisTotal = parseFloat(ergebnisTotalFeld.value);
+            var neuerWertTotal = altErgebnisTotal + preis;
+            ergebnisTotalFeld.value = neuerWertTotal;
+
+           
+        }
+        function Entfernen(preis, groeße) {
+            var ergebnisFeld = document.getElementById("Ergebnis");
+            var alterWert = parseFloat(ergebnisFeld.value)
+            var neuerWert = alterWert - preis;
+            ergebnisFeld.value = neuerWert;
+
+            var anzahlgroeße = document.getElementById("Anzahl"+groeße);
+            var alterWertAnzahl = parseInt(anzahlgroeße.value);
+            anzahlgroeße.value = alterWertAnzahl - 1;
+
+           var ergebnisTotalFeld = document.getElementById("ErgebnisTotal")
+            var altErgebnisTotal = parseFloat(ergebnisTotalFeld.value);
+            var neuerWertTotal = altErgebnisTotal - preis;
+            ergebnisTotalFeld.value = neuerWertTotal;
+
+        }
+        function Zurücksetzen() {
+            var ergebnisFeld = document.getElementById("Ergebnis");
+            ergebnisFeld.value = 0;
+            var anzahlgroeße = document.getElementById("Anzahl"+ 'klein');
+            anzahlgroeße.value = 0;
+            anzahlgroeße = document.getElementById("Anzahl"+ 'mittel');
+            anzahlgroeße.value = 0;
+            anzahlgroeße = document.getElementById("Anzahl"+ 'groß');
+            anzahlgroeße.value = 0;
+            anzahlgroeße = document.getElementById("Anzahl"+ 'sehrgroß');
+            anzahlgroeße.value = 0; 
+            anzahlgroeße = document.getElementById("Anzahl"+ 'extremgroß');
+            anzahlgroeße.value = 0;
+        }
+    
+    </script>
+    <style>
+        input, select {
+            font-size: 25pt;
+        }
+        
+    </style>
+    </head>
+    <body>
+        <p style="font-size: 38pt; margin-bottom: 10pt; margin-top: 8pt;">BookSpiration</p>
+        <div style="font-size: 20pt;">
+        <p>Limo</p>
+        <select id="Limo">
+            <option value="amarelo">Cola</option>
+            <option value="mirtilo">Lemonaid</option>
+            <option value="mirtilo">SuperBock</option>
+        </select>
+        <input id="Einfügenklein" type="button" value="+" onclick="Einfügen(280, 'klein')">
+       <input id="Entfernenklein" type="button" value="-" onclick="Entfernen(280, 'klein')">
+       Anzahl: <input id="Anzahlklein" type="button" value="0" disabled>    
+      
+       <p>Blätterteig + Wasser</p>
+        <select id="wasserblatt">
+            <option value="amarelo">Wasser</option>
+            <option value="mirtilo">Blätterteig-Schnecken</option>
+        </select>
+       <input id="Einfügenmittel" type="button" value="+" onclick="Einfügen(150, 'mittel')">
+       <input id= "Entfernenmittel" type="button" value="-" onclick="Entfernen(150, 'mittel')">
+       Anzahl: <input id="Anzahlmittel" type="button" value="0" disabled>        
+  
+        <p>Portwein</p>
+        <select id="portwein">
+            <option value="verdeagua">Portwein</option>
+        </select>
+       <input id="Einfügengroß" type="button" value="+" onclick="Einfügen(250, 'groß')">
+       <input id="Entfernengroß" type="button" value="-" onclick="Entfernen(250, 'groß')">
+       Anzahl: <input id="Anzahlgroß" type="button" value="0" disabled>        
+    
+    <p>Pizza + Wein</p>
+        <select id="pizzawein">
+            <option value="mirtilo">Pizza</option>
+            <option value="verdeagua">Wein Rot/Weiß</option>
+        </select>
+       <input id="Einfügensehrgroß" type="button" value="+" onclick="Einfügen(350, 'groß')">
+       <input id="Entfernensehrgroß" type="button" value="-" onclick="Entfernen(350, 'groß')">
+       Anzahl: <input id="Anzahlsehrgroß" type="button" value="0" disabled>        
+    
+    <p>Pastel de Nata</p>
+        <select id="pasteis">
+            <option value="mirtilo">Pasteis</option>
+        </select>
+       <input id="Einfügenextremgroß" type="button" value="+" onclick="Einfügen(290, 'groß')">
+       <input id="Entfernenextremgroß" type="button" value="-" onclick="Entfernen(290, 'groß')">
+       Anzahl: <input id="Anzahlextremgroß" type="button" value="0" disabled>        
+    
+    </div>
+    <div style="margin-top: 50px; font-size: 20pt;">
+        <input id="Ergebnis" style="width: 100px;" type="text" value="0" disabled>cent
+        <input type="button" value="Zurücksetzen" onclick="Zurücksetzen()">
+        </div>
+        <div style="margin-top: 50px; font-size: 20pt;">
+        <p style="font-size: 25pt;">Gesamtbetrag</p>
+            <input id="ErgebnisTotal" style="width: 100px;" type="text" value="0" disabled>cent
+            </div>
+    </body>
+</html>
